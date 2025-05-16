@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/schemes.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>  
+   
+    <title>Ayush Startup Portal</title>
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif; /* Use a web font */
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Slightly lighter background color */
+    color: #333;
+}
+
+.container {
+    max-width: 85%; /* Slightly reduced width */
+    margin: 30px auto;
+    padding: 30px; /* Increased padding for more space */
+    background-color: #ffffff;
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3; /* Darker shade of blue */
+    font-size: 36px; /* Larger font size */
+    margin-bottom: 30px;
+}
+
+.contact-info, .social-media, .faq-item {
+    margin-bottom: 40px; /* Increased spacing */
+}
+
+.contact-info h2, .social-media h2, .faq-item .question {
+    font-size: 26px; /* Slightly larger font size */
+    color: #0056b3; /* Consistent color */
+    margin-bottom: 15px;
+}
+
+.contact-info p, .social-media p, .faq-item .answer {
+    font-size: 18px;
+    line-height: 1.8; /* Slightly increased line height */
+}
+
+.social-media a {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 32px; /* Slightly larger icons */
+    color: #0056b3;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-media a:hover {
+    color: #003d7a;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.faq-item {
+    border: 1px solid #0056b3; /* Blue border for items */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for FAQ items */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.faq-item:hover {
+    background-color: #e0f7fa; /* Light blue background on hover */
+    color: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+.faq-item:last-of-type {
+    border-bottom: none;
+}
+
+.question {
+    font-size: 20px; /* Slightly larger font size */
+    font-weight: bold;
+    color: #003d7a; /* Darker color for better contrast */
+    cursor: pointer;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.question:hover {
+    color: #002d5b;
+    text-decoration: underline; /* Underline on hover */
+}
+
+.answer {
+    display: none;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    padding-top: 15px; /* Increased padding for answers */
+}
+
+.answer.active {
+    display: block;
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="content">
+        <div class="content">
+          <!-- Navbar -->
+          <nav class="nav" style="margin-bottom: 5%; margin-left: 5%;">
+              <div class="nav-container">
+                  <!-- Logo -->
+                  <a href="index.html" style="height: 20px; width: 160px; margin-bottom: 60px;" class="nav-logo">
+                      <img src="logo.png" alt="logo" />
+                  </a>
+                  
+                  <!-- Navigation Links -->
+                  <ul class="nav-links">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="schemes.html">Schemes</a></li>
+                      <li><a href="Analyticspage.html">Dashboard</a></li>
+                      <li><a href="newletterpage.html">Newsletter</a></li>
+                      <li><a href="help.html">FAQs</a></li>
+                      <li><a href="contact_faq.html">Contact Us</a></li>
+                  </ul>
+                  
+                  <!-- Register and Login Buttons -->
+                  <div class="nav-buttons">
+                      <button onclick="window.location.href='registration.html'" class="button">Register</button>
+                      <button onclick="window.location.href='login_page.html'" style="margin-left: 20px;" class="button">Login</button>
+                  </div>
+              </div>
+          </nav>
+
+
+
+    <!-- FAQ Section -->
+    <h1>Frequently Asked Questions (FAQs)</h1>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(1)">1) What is the AYUSH Startup Portal?</div>
+        <div class="answer" id="answer1">The AYUSH Startup Portal is an online platform developed by the Ministry of AYUSH to streamline the registration and application processes for startups in the AYUSH sector. It also enables startups to apply for various schemes and track their applications in real-time.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(2)">2) Who can register on the AYUSH Startup Portal?</div>
+        <div class="answer" id="answer2">Any startup that operates in the AYUSH sector, including Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homeopathy, is eligible to register on the portal. Specific eligibility criteria may apply depending on the scheme.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(3)">3) How do I create an account on the AYUSH Startup Portal?</div>
+        <div class="answer" id="answer3">To create an account, click on the "Register" button on the homepage. Fill in your personal and business details, upload the required documents, and set a password. You will receive a confirmation email to verify your account.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(4)">4) What documents are required for registration?</div>
+        <div class="answer" id="answer4">Documents such as proof of identity, business registration certificates, and relevant project details may be required. Specific document requirements will vary depending on the schemes you are applying for.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(5)">5) How can I track the status of my application?</div>
+        <div class="answer" id="answer5">After submitting your application, you can monitor its status by logging into your account. Go to the "My Applications" section to view updates on your application's progress in real-time.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(6)">6) How long does it take to process my application?</div>
+        <div class="answer" id="answer6">The time taken to process applications may vary depending on the scheme and the completeness of your application. Once submitted, you will be notified of the expected processing time.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(7)">7) Can I edit my application after submission?</div>
+        <div class="answer" id="answer7">No, once your application is submitted, you cannot make changes. However, if you need to update your information or documents, contact support for assistance.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(8)">8) What if I forget my password?</div>
+        <div class="answer" id="answer8">If you forget your password, click on the "Forgot Password" link on the login page. Enter your registered email address, and you will receive a link to reset your password.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(9)">9) Is my data safe on the AYUSH Startup Portal?</div>
+        <div class="answer" id="answer9">Yes, the portal uses secure encryption methods to protect your personal and business data. The Ministry of AYUSH is committed to ensuring the confidentiality and privacy of all users.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(10)">10) What schemes are available on the AYUSH Startup Portal?</div>
+        <div class="answer" id="answer10">The portal hosts various schemes, including:
+            <ul>
+                <li>National AYUSH Mission (NAM)</li>
+                <li>AYUSH Entrepreneur Development Program (AEDP)</li>
+                <li>AYUSH Research and Development</li>
+                <li>AYUSH Health and Wellness Centres (H&WC)</li>
+            </ul>
+            More details are available in the "Schemes" section.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(11)">11) How do I contact support if I face any issues?</div>
+        <div class="answer" id="answer11">You can contact the AYUSH support team by using the contact form on the portal or calling the support helpline during business hours. Support details are provided on the Contact page.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(12)">12) Is there a fee to register or apply through the portal?</div>
+        <div class="answer" id="answer12">No, there is no fee for registering or applying for schemes through the AYUSH Startup Portal. It is free for all eligible startups.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question" onclick="toggleAnswer(13)">13) What are the benefits of using the AYUSH Startup Portal?</div>
+        <div class="answer" id="answer13">The portal provides a centralized platform for startups to register, apply for government schemes, and track their applications. It ensures transparency, efficiency, and faster processing of applications.</div>
+    </div>
+
+</div>
+
+<footer style="background-color: #f4f4f400;">
+    <div class="footer-top" >
+        <div class="footer-content pt-95 pb-95 md-pt-75 md-pb-27">
+            <div class="container1">
+                <div class="row">
+                    <!-- Ayush Startup Portal Section -->
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="resources-widget widget portal">
+                          <div class="tf-logo-s">
+                            <a href="">
+                                <img src="https://ngo.ayush.gov.in/Default/assets/front/images/archeo-logo.png" alt="Ayush Startup Portal Logo" height="60px" width= auto class="logo-image">
+                            </a>
+                        </div>
+                        <div class="visitorDv">
+                            <div class="col-md-12 ft-left text-right">
+                                <div class="Update">
+                                    <p>Last Updated on: 31<sup>st</sup> Aug 2024</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ft-left text-right">
+                                <div class="Update">
+                                    <p>Visitors: 1221</p>
+                                </div>
+                            </div>
+                        </div>                        
+                        </div>
+                    </div>
+
+                    <!-- Links Section -->
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <div class="resources-widget widget links">
+                            <ul class="ft-links">
+                                <li><a href='https://ngo.ayush.gov.in/website-policies' title="Website Policies">Website Policies</a></li>
+                                <li><a href='https://ngo.ayush.gov.in/disclaimer' title="Disclaimer">Disclaimer</a></li>
+                            </ul>
+                            <ul class="ft-links">
+                                <li><a href='https://ngo.ayush.gov.in/help' title="Help">Help</a></li>
+                                <li><a href='https://ngo.ayush.gov.in/terms-and-conditions' title="Terms and Conditions">Terms and Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Section -->
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="resources-widget widget">
+                            <div class="widget-title-wrap mb-21">
+                                <h3 class="widget-title mb-19">Connect with us</h3>
+                            </div>
+                            <ul class="socialgroup-links">
+                                <li class="facebookbg">
+                                    <a target="_blank" href="https://www.facebook.com/moayush/" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="twitterbg">
+                                    <a target="_blank" href="https://www.twitter.com/moayush/" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="youtubebg">
+                                    <a target="_blank" href="https://www.youtube.com/channel/UCqRR2gs-I3zrNcE4so4TpgQ" title="YouTube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="instagrambg">
+                                    <a target="_blank" href="https://www.instagram.com/ministryofayush/" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom" style="width: 100%;">
+        <div class="container1">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ftb">
+                        <div class="row">
+                            <div class="col-md-12 ft-right">
+                                <div class="copyright-sec text-center">
+                                    <p>Copyright @ 2024 Ministry of Ayush. | Government of India, All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<script>
+    function toggleAnswer(id) {
+        var answer = document.getElementById('answer' + id);
+        if (answer.classList.contains('active')) {
+            answer.classList.remove('active');
+        } else {
+            // Hide all answers
+            var answers = document.querySelectorAll('.answer');
+            answers.forEach(function(ans) {
+                ans.classList.remove('active');
+            });
+            // Show the selected answer
+            answer.classList.add('active');
+        }
+    }
+</script>
+</body>
+</html>

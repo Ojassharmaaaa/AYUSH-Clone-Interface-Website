@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>  
+    <link rel="icon" href="https://www.pmindia.gov.in/wp-content/themes/pmindia2015/images/favicon.ico" type="image/x-icon">
+    <title>AYUSH Startup Registration - Schemes</title>
+    <link rel="stylesheet" href="css/schemes.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            padding-top: 2%;
+            background-color: #ffffff00;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e88e5;
+            margin-bottom: 50px;
+        }
+
+        .scheme-card {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .scheme-card:nth-child(odd) {
+            background-color: #bbdefb;
+        }
+
+        .scheme-card:hover {
+            transform: scale(1.02);
+            background-color: #90caf9;
+        }
+
+        .scheme-title {
+            color: #0d47a1;
+            font-size: 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .scheme-content {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .toggle-icon {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+            color: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="content">
+        <nav class="nav">
+          <div class="nav-container">
+              <!-- Logo -->
+              <a href="index.html" class="navbar-logo">
+                  <img src="logo.png" alt="logo" />
+              </a>
+              
+              <!-- Navigation Links -->
+              <ul class="nav">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="schemes.html">Schemes</a></li>
+                  <li><a href="Analyticspage.html">Dashboard</a></li>
+                  <li><a href="newletterpage.html">Newsletter</a></li>
+                  <li><a href="help.html">FAQs</a></li>
+                  <li><a href="contact_faq.html">Contact Us</a></li>
+              </ul>
+              
+              <!-- Register and Login Buttons -->
+               
+              <div class="nav-buttons">
+                <button onclick="window.location.href='registration.html'" class="button">Register</button>
+                <button onclick="window.location.href='login_page.html'" style="margin-left: 20px;" class="button">Login</button>
+            </div>
+          </div>
+      </nav>
+      </div>  
+        </div>
+
+    <div class="container">
+        <h1>AYUSH Startup Schemes</h1>
+
+        <!-- Scheme 1 -->
+        <div class="scheme-card">
+            <div class="scheme-title" onclick="toggleScheme(this)">
+                Scheme 1: National AYUSH Mission (NAM)
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="scheme-content">
+                <p>The National AYUSH Mission aims to promote AYUSH systems through cost-effective services and integration with mainstream healthcare. Financial support is available for establishing AYUSH hospitals and dispensaries, offering opportunities for healthcare startups.</p>
+            </div>
+        </div>
+
+        <!-- Scheme 2 -->
+        <div class="scheme-card">
+            <div class="scheme-title" onclick="toggleScheme(this)">
+                Scheme 2: AYUSH Entrepreneur Development Program (AEDP)
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="scheme-content">
+                <p>The AYUSH Entrepreneur Development Program provides financial assistance and mentorship to entrepreneurs. It supports innovation, market expansion, and the development of AYUSH-based healthcare services through workshops, grants, and incubator support.</p>
+            </div>
+        </div>
+
+        <!-- Scheme 3 -->
+        <div class="scheme-card">
+            <div class="scheme-title" onclick="toggleScheme(this)">
+                Scheme 3: AYUSH Export Promotion Council
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="scheme-content">
+                <p>This scheme helps AYUSH startups expand their products internationally by providing financial aid and guidance. It supports businesses in reaching global markets, complying with international standards, and participating in trade fairs.</p>
+            </div>
+        </div>
+
+        <!-- Scheme 4 -->
+        <div class="scheme-card">
+            <div class="scheme-title" onclick="toggleScheme(this)">
+                Scheme 4: AYUSH Oushadhi Gunvatta Evam Uttpadan Samvardhan Yojana (AOGUSY)
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="scheme-content">
+                <p>AOGUSY focuses on improving the quality of AYUSH medicines. Financial support is provided to upgrade manufacturing units to meet global standards. Startups in the AYUSH pharmaceutical sector can apply for this scheme to improve product quality.</p>
+            </div>
+        </div>
+
+        <!-- Scheme 5 -->
+        <div class="scheme-card">
+            <div class="scheme-title" onclick="toggleScheme(this)">
+                Scheme 5: AYUSH Research & Development Scheme
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="scheme-content">
+                <p>This scheme encourages research in AYUSH medicine, offering financial support for startups developing evidence-based products. It also funds clinical research in Ayurveda, Siddha, Unani, and Homoeopathy, fostering innovation in healthcare.</p>
+            </div>
+        </div>
+
+        <!-- Scheme 6 -->
+        <div class="scheme-card">
+            <div class="scheme-title" onclick="toggleScheme(this)">
+                Scheme 6: AYUSH Health and Wellness Centers (HWCs)
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="scheme-content">
+                <p>AYUSH Health and Wellness Centers provide preventive and curative healthcare. Startups in the healthcare sector can manage and supply these centers, which offer AYUSH-based treatments and preventive care services to communities across India.</p>
+            </div>
+        </div>
+
+        <!-- Scheme 7 -->
+        <div class="scheme-card">
+            <div class="scheme-title" onclick="toggleScheme(this)">
+                Scheme 7: BIRAC – AYUSH Scheme
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="scheme-content">
+                <p>The Biotechnology Industry Research Assistance Council (BIRAC) offers funding for biotech startups working on healthcare innovations involving AYUSH systems. This scheme supports product development and commercialization for startups at the intersection of biotech and AYUSH.</p>
+            </div>
+        </div>
+
+        <!-- Scheme 8 -->
+        <div class="scheme-card">
+            <div class="scheme-title" onclick="toggleScheme(this)">
+                Scheme 8: AYUSH Digital Health Program
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="scheme-content">
+                <p>This scheme promotes digital health startups that develop telemedicine, mobile apps, and AI-based solutions for AYUSH healthcare. Funding and technical assistance are provided for digital innovations aimed at enhancing access to AYUSH services.</p>
+            </div>
+        </div>
+
+        <!-- Scheme 9 -->
+        <div class="scheme-card">
+            <div class="scheme-title" onclick="toggleScheme(this)">
+                Scheme 9: AYUSH Soft Loan Scheme
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="scheme-content">
+                <p>The AYUSH Soft Loan Scheme provides low-interest loans to startups for infrastructure, equipment, and working capital. It's beneficial for startups in manufacturing, service delivery, or exporting AYUSH products.</p>
+            </div>
+        </div>
+
+        <!-- Scheme 10 -->
+        <div class="scheme-card">
+            <div class="scheme-title" onclick="toggleScheme(this)">
+                Scheme 10: Start-up India Seed Fund Scheme (SISFS)
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="scheme-content">
+                <p>The SISFS provides seed funding to early-stage startups, including those in AYUSH. Startups can use the fund for prototype development, product trials, and market entry, especially in health or wellness categories.</p>
+            </div>
+        </div>
+
+        <!-- Scheme 11 -->
+        <div class="scheme-card">
+            <div class="scheme-title" onclick="toggleScheme(this)">
+                Scheme 11: SIDBI Make in India Soft Loan Fund for MSMEs (SMILE)
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="scheme-content">
+                <p>SMILE provides soft loans to MSMEs, including AYUSH-based startups, focusing on manufacturing and healthcare products. It helps startups scale production and meet domestic and international demand for AYUSH products.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Toggle Scheme Content
+        function toggleScheme(element) {
+            var content = element.nextElementSibling;
+            var icon = element.querySelector(".toggle-icon");
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                icon.textContent = "+";
+            } else {
+                content.style.display = "block";
+                icon.textContent = "-";
+            }
+        }
+    </script>
+
+<footer>
+    <div class="footer-top">
+        <div class="footer-content pt-95 pb-95 md-pt-75 md-pb-27">
+            <div class="container">
+                <div class="row">
+                    <!-- Ayush Startup Portal Section -->
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="resources-widget widget portal">
+                          <div class="tf-logo-s">
+                            <a href="">
+                                <img src="https://ngo.ayush.gov.in/Default/assets/front/images/archeo-logo.png" alt="Ayush Startup Portal Logo" height="60px" width= auto class="logo-image">
+                            </a>
+                        </div>
+                        <div class="visitorDv">
+                            <div class="col-md-12 ft-left text-right">
+                                <div class="Update">
+                                    <p>Last Updated on: 31<sup>st</sup> Aug 2024</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ft-left text-right">
+                                <div class="Update">
+                                    <p>Visitors: 1221</p>
+                                </div>
+                            </div>
+                        </div>                        
+                        </div>
+                    </div>
+
+                    <!-- Links Section -->
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <div class="resources-widget widget links">
+                            <ul class="ft-links">
+                                <li><a href='https://ngo.ayush.gov.in/website-policies' title="Website Policies">Website Policies</a></li>
+                                <li><a href='https://ngo.ayush.gov.in/disclaimer' title="Disclaimer">Disclaimer</a></li>
+                            </ul>
+                            <ul class="ft-links">
+                                <li><a href='https://ngo.ayush.gov.in/help' title="Help">Help</a></li>
+                                <li><a href='https://ngo.ayush.gov.in/terms-and-conditions' title="Terms and Conditions">Terms and Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Section -->
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="resources-widget widget">
+                            <div class="widget-title-wrap mb-21">
+                                <h3 class="widget-title mb-19">Connect with us</h3>
+                            </div>
+                            <ul class="socialgroup-links">
+                                <li class="facebookbg">
+                                    <a target="_blank" href="https://www.facebook.com/moayush/" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="twitterbg">
+                                    <a target="_blank" href="https://www.twitter.com/moayush/" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="youtubebg">
+                                    <a target="_blank" href="https://www.youtube.com/channel/UCqRR2gs-I3zrNcE4so4TpgQ" title="YouTube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="instagrambg">
+                                    <a target="_blank" href="https://www.instagram.com/ministryofayush/" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ftb">
+                        <div class="row">
+                            <div class="col-md-12 ft-right">
+                                <div class="copyright-sec text-center">
+                                    <p>Copyright @ 2024 Ministry of Ayush. | Government of India, All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

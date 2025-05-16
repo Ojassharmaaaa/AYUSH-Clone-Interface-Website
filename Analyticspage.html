@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>  
+
+    <link rel="stylesheet" href="css/schemes.css">
+    <title>Analytics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container1  {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff00;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff00;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        #analytics {
+            margin-top: 30px;
+        }
+        footer {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 50px;
+        }
+        footer p {
+            margin: 0;
+        }
+        .chart-container {
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="content">
+          <!-- Navbar -->
+          <nav class="nav" style="margin-bottom: 5%;">
+              <div class="nav-container">
+                  <!-- Logo -->
+                  <a href="index.html" style="height: 20px; width: 160px; margin-bottom: 60px;" class="nav-logo">
+                      <img src="logo.png" alt="logo" />
+                  </a>
+                  
+                  <!-- Navigation Links -->
+                  <ul class="nav-links">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="schemes.html">Schemes</a></li>
+                      <li><a href="Analyticspage.html">Dashboard</a></li>
+                      <li><a href="newletterpage.html">Newsletter</a></li>
+                      <li><a href="help.html">FAQs</a></li>
+                      <li><a href="contact_faq.html">Contact Us</a></li>
+                  </ul>
+                  
+                  <!-- Register and Login Buttons -->
+                  <div class="nav-buttons">
+                      <button onclick="window.location.href='registration.html'" class="button">Register</button>
+                      <button onclick="window.location.href='login_page.html'" style="margin-left: 20px;" class="button">Login</button>
+                  </div>
+              </div>
+          </nav>
+        </div>
+        </div>
+
+<div class="container">
+    <h1>Analytics</h1>
+
+    <!-- Registration by Domain Chart -->
+    <div class="chart-container">
+        <h2>Registrations by Domain</h2>
+        <canvas id="registrationChart"></canvas>
+    </div>
+
+    <!-- Registration by Year Chart -->
+    <div class="chart-container">
+        <h2>Registrations by Year</h2>
+        <canvas id="yearChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Registration by Domain Chart
+    var ctxDomain = document.getElementById('registrationChart').getContext('2d');
+    var registrationChart = new Chart(ctxDomain, {
+        type: 'bar',
+        data: {
+            labels: ['Ayurveda', 'Yoga', 'Unani', 'Homoepathy', 'Naturopathy'],
+            datasets: [{
+                label: '# of Registrations',
+                data: [7, 4, 3, 3, 2],  // Data for each domain
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Registration by Year Chart
+    var ctxYear = document.getElementById('yearChart').getContext('2d');
+    var yearChart = new Chart(ctxYear, {
+        type: 'bar',
+        data: {
+            labels: ['2002', '2010', '2011', '2017', '2018', '2019', '2020', '2021', '2022'],
+            datasets: [{
+                label: '# of Registrations',
+                data: [3, 2, 2, 2, 2, 3, 1, 1, 3],  // Data for each year
+                backgroundColor: [
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(201, 203, 207, 1)',
+                    'rgba(255, 205, 86, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+<footer style="background-color: #f4f4f4;">
+    <div class="footer-top" >
+        <div class="footer-content pt-95 pb-95 md-pt-75 md-pb-27">
+            <div class="container">
+                <div class="row">
+                    <!-- Ayush Startup Portal Section -->
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="resources-widget widget portal">
+                          <div class="tf-logo-s">
+                            <a href="">
+                                <img src="https://ngo.ayush.gov.in/Default/assets/front/images/archeo-logo.png" alt="Ayush Startup Portal Logo" height="60px" width= auto class="logo-image">
+                            </a>
+                        </div>
+                        <div class="visitorDv">
+                            <div class="col-md-12 ft-left text-right">
+                                <div class="Update">
+                                    <p>Last Updated on: 31<sup>st</sup> Aug 2024</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ft-left text-right">
+                                <div class="Update">
+                                    <p>Visitors: 1221</p>
+                                </div>
+                            </div>
+                        </div>                        
+                        </div>
+                    </div>
+
+                    <!-- Links Section -->
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <div class="resources-widget widget links">
+                            <ul class="ft-links">
+                                <li><a href='https://ngo.ayush.gov.in/website-policies' title="Website Policies">Website Policies</a></li>
+                                <li><a href='https://ngo.ayush.gov.in/disclaimer' title="Disclaimer">Disclaimer</a></li>
+                            </ul>
+                            <ul class="ft-links">
+                                <li><a href='https://ngo.ayush.gov.in/help' title="Help">Help</a></li>
+                                <li><a href='https://ngo.ayush.gov.in/terms-and-conditions' title="Terms and Conditions">Terms and Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Section -->
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="resources-widget widget">
+                            <div class="widget-title-wrap mb-21">
+                                <h3 class="widget-title mb-19">Connect with us</h3>
+                            </div>
+                            <ul class="socialgroup-links">
+                                <li class="facebookbg">
+                                    <a target="_blank" href="https://www.facebook.com/moayush/" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="twitterbg">
+                                    <a target="_blank" href="https://www.twitter.com/moayush/" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="youtubebg">
+                                    <a target="_blank" href="https://www.youtube.com/channel/UCqRR2gs-I3zrNcE4so4TpgQ" title="YouTube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="instagrambg">
+                                    <a target="_blank" href="https://www.instagram.com/ministryofayush/" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+        <div class="container1">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ftb">
+                        <div class="row">
+                            <div class="col-md-12 ft-right">
+                                <div class="copyright-sec text-center">
+                                    <p>Copyright @ 2024 Ministry of Ayush. | Government of India, All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

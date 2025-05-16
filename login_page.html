@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+ 
+</head>
+<body>
+
+    
+  <div class="content">
+    <div class="content">
+    <nav class="nav">
+      <div class="nav-container">
+          <!-- Logo -->
+          <a href="index.html" class="navbar-logo">
+              <img src="logo.png" alt="logo" />
+          </a>
+          
+          <!-- Navigation Links -->
+          <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="schemesPage\schemes.html">Schemes</a></li>
+              <li><a href="analyticsPage\Analyticspage.html">Dashboard</a></li>
+              <li><a href="newsletterPage\newletterpage.html">Newsletter</a></li>
+              <li><a href="helpPage\help.html">FAQs</a></li>
+              <li><a href="contactPage\contact_faq.html">Contact Us</a></li>
+          </ul>
+          
+          <!-- Register and Login Buttons -->
+           
+          <div class="nav-buttons">
+              <button onclick="window.location.href='registration.html'" style="margin-left: 20px;" class="button">Register</button>
+          </div>
+      </div>
+  </nav>
+  </div>  
+    </div>
+  
+
+    <div class="outer_container">
+        <div class="login_container">
+            <form class="login_form">
+                <h2>Login</h2>
+
+                <!-- Email and Password Fieldset -->
+                <fieldset id="email-login">
+                    <div class="input_group">
+                        <label for="email">Email ID</label>
+                        <input type="email" id="email" placeholder="Enter Email Address" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter Password" required>
+                    </div>
+                    <div class="captcha_container">
+                        <div class="preview"></div>
+                        <button type="button" class="captcha_refresh">↻</button>
+                    </div>
+                    <div class="input_group">
+                        <input type="text" id="captcha_input" placeholder="Enter CAPTCHA" required>
+                    </div>
+                </fieldset>
+
+                <!-- Phone Number Fieldset (Initially Hidden) -->
+                <fieldset id="phone-login" style="display: none;">
+                    <div class="input_group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter Phone Number" required>
+                    </div>
+                    <div class="otpverify">
+                        <input type="text" id="otp_inp" placeholder="Enter the OTP">
+                        <button class="btn" id="send-otp-btn">Send OTP</button>
+                    </div>
+                </fieldset>
+
+                <button type="button" class="form_button" id="login-button">Log In</button>
+                <center><h3>OR</h3></center>
+                <button id="login-toggle">Login with phone number</button><br><br>
+
+                <div class="extra_links">
+                    <a href="#">Forgot Login Details?</a>
+                    <a href="#">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+          
+
+            
+
+    <script>
+        (function() {
+            const fonts = ["cursive", "serif", "sans-serif", "monospace", "fantasy"];
+            const colors = ["#000000", "#1F618D", "#117A65", "#9C640C", "#78281F"];
+            let captchaValue = "";
+            const hardCodedOTP = "1234"; // Hard-coded OTP
+            let otpSent = false; // Flag to track if OTP has been sent
+
+            function gencaptcha() {
+                let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                captchaValue = "";
+                for (let i = 0; i < 7; i++) {
+                    captchaValue += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+            }
+
+            function setcaptcha() {
+                let html = captchaValue.split("").map((char) => {
+                    const rotate = -20 + Math.trunc(Math.random() * 40);
+                    const font = fonts[Math.floor(Math.random() * fonts.length)];
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const size = 20 + Math.trunc(Math.random() * 10);
+                    return `<span
+                                style="
+                                transform:rotate(${rotate}deg);
+                                font-family:${font};
+                                color:${color};
+                                font-size:${size}px;
+                                "
+                            >${char}</span>`;
+                }).join("");
+                document.querySelector(".login_form .preview").innerHTML = html;
+            }
+
+            function initCaptcha() {
+                document.querySelector(".captcha_refresh").addEventListener("click", function() {
+                    gencaptcha();
+                    setcaptcha();
+                });
+
+                gencaptcha();
+                setcaptcha();
+            }
+
+            initCaptcha();
+
+            document.querySelector("#login-button").addEventListener("click", function() {
+                const emailFieldset = document.getElementById("email-login");
+                const phoneFieldset = document.getElementById("phone-login");
+
+                if (emailFieldset.style.display === "block") {
+                    // Email and Password Validation
+                    let inputCaptchaValue = document.querySelector("#captcha_input").value;
+
+                    if (inputCaptchaValue === captchaValue) {
+                        alert("Log in success");
+                        window.location.href = "index.html"; // Redirect to index.html
+                    } else {
+                        alert("Invalid Captcha");
+                    }
+                } else if (phoneFieldset.style.display === "block") {
+                    // Phone Number and OTP Validation
+                    const otpInput = document.getElementById("otp_inp").value;
+
+                    if (!otpSent) {
+                        alert("Invalid OTP");
+                        return;
+                    }
+
+                    if (otpInput === hardCodedOTP) {
+                        alert("Logged in successfully");
+                        window.location.href = "index.html"; // Redirect to index.html
+                    } else {
+                        alert("Invalid OTP");
+                    }
+                }
+            });
+
+            // Toggle between Email and Phone Login Fieldsets
+            document.querySelector("#login-toggle").addEventListener("click", function(event) {
+                event.preventDefault();
+                const emailFieldset = document.getElementById("email-login");
+                const phoneFieldset = document.getElementById("phone-login");
+                const toggleLink = document.getElementById("login-toggle");
+
+                if (emailFieldset.style.display === "none") {
+                    emailFieldset.style.display = "block";
+                    phoneFieldset.style.display = "none";
+                    toggleLink.textContent = "Login with phone number";
+                } else {
+                    emailFieldset.style.display = "none";
+                    phoneFieldset.style.display = "block";
+                    toggleLink.textContent = "Login with email ID";
+                }
+            });
+
+            // Send OTP Functionality
+            function sendOTP() {
+                const sendOtpBtn = document.getElementById("send-otp-btn");
+                const verifyBtn = document.getElementById("otp-btn");
+
+                alert("OTP Sent");
+                sendOtpBtn.textContent = "Resend OTP";
+                sendOtpBtn.disabled = true;
+                otpSent = true; // Set flag to true after sending OTP
+
+                setTimeout(() => {
+                    verifyBtn.disabled = false;
+                }, 1200);
+            }
+
+            // Attach the sendOTP function to the Send OTP button
+            document.getElementById("send-otp-btn").addEventListener("click", sendOTP);
+        })();
+    </script>
+
+        <!--Footer-->
+        <footer>
+            <div class="footer-top">
+                <div class="footer-content pt-95 pb-95 md-pt-75 md-pb-27">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Ayush Startup Portal Section -->
+                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="resources-widget widget portal">
+                                  <div class="tf-logo-s">
+                                    <a href="">
+                                        <img src="https://ngo.ayush.gov.in/Default/assets/front/images/archeo-logo.png" alt="Ayush Startup Portal Logo" height="60px" width= auto class="logo-image">
+                                    </a>
+                                </div>
+                                <div class="visitorDv">
+                                    <div class="col-md-12 ft-left text-right">
+                                        <div class="Update">
+                                            <p>Last Updated on: 31<sup>st</sup> Aug 2024</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ft-left text-right">
+                                        <div class="Update">
+                                            <p>Visitors: 1221</p>
+                                        </div>
+                                    </div>
+                                </div>                        
+                                </div>
+                            </div>
+        
+                            <!-- Links Section -->
+                            <div class="col-lg-5 col-md-5 col-sm-12">
+                                <div class="resources-widget widget links">
+                                    <ul class="ft-links">
+                                        <li><a href='https://ngo.ayush.gov.in/website-policies' title="Website Policies">Website Policies</a></li>
+                                        <li><a href='https://ngo.ayush.gov.in/disclaimer' title="Disclaimer">Disclaimer</a></li>
+                                    </ul>
+                                    <ul class="ft-links">
+                                        <li><a href='https://ngo.ayush.gov.in/help' title="Help">Help</a></li>
+                                        <li><a href='https://ngo.ayush.gov.in/terms-and-conditions' title="Terms and Conditions">Terms and Conditions</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+        
+                            <!-- Social Media Section -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="resources-widget widget">
+                                    <div class="widget-title-wrap mb-21">
+                                        <h3 class="widget-title mb-19">Connect with us</h3>
+                                    </div>
+                                    <ul class="socialgroup-links">
+                                        <li class="facebookbg">
+                                            <a target="_blank" href="https://www.facebook.com/moayush/" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                        </li>
+                                        <li class="twitterbg">
+                                            <a target="_blank" href="https://www.twitter.com/moayush/" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                        </li>
+                                        <li class="youtubebg">
+                                            <a target="_blank" href="https://www.youtube.com/channel/UCqRR2gs-I3zrNcE4so4TpgQ" title="YouTube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                                        </li>
+                                        <li class="instagrambg">
+                                            <a target="_blank" href="https://www.instagram.com/ministryofayush/" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Footer Bottom Section -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="ftb">
+                                <div class="row">
+                                    <div class="col-md-12 ft-right">
+                                        <div class="copyright-sec text-center">
+                                            <p>Copyright @ 2024 Ministry of Ayush. | Government of India, All rights reserved.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>
